@@ -1,0 +1,47 @@
+.select-name {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.select-container {
+  text-align: center;
+}
+
+select {
+  vertical-align: middle;
+}
+
+.content {
+  text-align: center;
+
+  .container {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 60px;
+    position: relative;
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+      width: 200px;
+      margin-left: 10px;
+    }
+
+    video {
+      width: 200px;
+    }
+  }
+
+  &.is-width {
+    .container {
+      &.video {
+        display: block;
+      }
+
+      img, video {
+        width: 300px;
+      }
+    }
+  }
+}

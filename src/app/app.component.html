@@ -1,0 +1,37 @@
+<div style="text-align:center">
+  <h1>
+    视频封面抽取
+  </h1>
+</div>
+
+<div class="select-container">
+  <h2 class="select-name">选择视频名称</h2>
+  <select name="video" [(ngModel)]="selectedVideo" (ngModelChange)="handleVideoChange()">
+    <option *ngFor="let video of videoNames">{{video}}</option>
+  </select>
+</div>
+
+<div *ngIf="selectedVideo" class="content" [class.is-width]="isWidth">
+  <section class="container video">
+    <h2>视频</h2>
+    <video controls autoplay>
+      <source src="../assets/weishi/{{selectedVideo}}.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <section class="container img">
+    <h2>GIF图</h2>
+    <img src="../assets/gif/{{selectedVideo}}_00.gif"/>
+  </section>
+
+  <section class="container img">
+    <h2>封面</h2>
+    <img src="../assets/thumb/{{selectedVideo}}_00.jpg" alt="thumb">
+    <img src="../assets/thumb/{{selectedVideo}}_01.jpg" alt="thumb">
+    <img src="../assets/thumb/{{selectedVideo}}_02.jpg" alt="thumb">
+  </section>
+
+</div>
+
+
+<router-outlet></router-outlet>
