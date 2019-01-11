@@ -47,5 +47,5 @@ getVideoNames(weishiFolder)
     });
 
     const json = JSON.stringify(videoNamesConfig);
-    fs.writeFile("./src/assets/videoNames.json", json, "utf8");
+    fs.writeFile("./src/assets/videoNames.json", json, "utf8", () => {});
   });
