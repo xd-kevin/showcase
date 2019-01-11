@@ -1,5 +1,5 @@
 import {Component, ElementRef} from '@angular/core';
-import {Subject} from "rxjs";
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -48,15 +48,14 @@ export class AppComponent {
   constructor(private elmRef: ElementRef) {
     this.isSelectedVideoImageWidth$ = new Subject();
     this.isSelectedVideoImageWidth$.subscribe(isWidth => {
-      console.log('is-width', isWidth);
       this.isWidth = isWidth;
-    })
+    });
   }
 
   handleVideoChange() {
     const player = this.elmRef.nativeElement.querySelector('video');
     player.load();
-    this.getImageDimension(this.selectedVideo)
+    this.getImageDimension(this.selectedVideo);
   }
 
   getImageDimension(src) {
@@ -64,11 +63,8 @@ export class AppComponent {
     const isSelectedVideoImageWidth$ = this.isSelectedVideoImageWidth$;
     img.onload = function (event) {
       const loadedImage: any = event.currentTarget;
-      console.log('width', loadedImage.width)
-      console.log('height', loadedImage.height)
-      console.log(loadedImage.width >= loadedImage.height);
-      isSelectedVideoImageWidth$.next(loadedImage.width >= loadedImage.height)
+      isSelectedVideoImageWidth$.next(loadedImage.width >= loadedImage.height);
     };
-    img.src = `../assets/gif/${src}_00.gif`;
+    img.src = `./assets/gif/${src}_00.gif`;
   }
 }
