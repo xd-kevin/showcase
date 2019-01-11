@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --base-href=/showcase/",
+    "start": "node ./generateVideos.js && ng serve --base-href=/showcase/",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href https://xd-kevin.github.io/showcase/ && angular-cli-ghpages --branch gh-pages -S"
+    "deploy": "node ./generateVideos.js && ng build --prod --base-href /showcase/ && angular-cli-ghpages --branch gh-pages -S",
+    "generateVideos": "node ./generateVideos.js"
   },
   "private": true,
   "dependencies": {

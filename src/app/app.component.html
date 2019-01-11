@@ -6,29 +6,27 @@
 
 <div class="select-container">
   <h2 class="select-name">选择视频名称</h2>
-  <select name="video" [(ngModel)]="selectedVideo" (ngModelChange)="handleVideoChange()">
+  <select name="video" [(ngModel)]="selectedName" (ngModelChange)="handleVideoChange()">
     <option *ngFor="let video of videoNames">{{video}}</option>
   </select>
 </div>
 
-<div *ngIf="selectedVideo" class="content" [class.is-width]="isWidth">
+<div *ngIf="config && selectedName" class="content" [class.is-width]="isSelectedVideoImageWidth$ | async">
   <section class="container video">
     <h2>视频</h2>
-    <video controls autoplay>
-      <source src="./assets/weishi/{{selectedVideo}}.mp4" type="video/mp4">
+    <video controls autoplay *ngFor="let video of config[selectedName].video">
+      <source src="./assets/weishi/{{video}}" type="video/mp4">
     </video>
   </section>
 
   <section class="container img">
     <h2>GIF图</h2>
-    <img src="./assets/gif/{{selectedVideo}}_00.gif"/>
+    <img *ngFor="let gif of config[selectedName].gif" src="./assets/gif/{{gif}}"/>
   </section>
 
   <section class="container img">
     <h2>封面</h2>
-    <img src="./assets/thumb/{{selectedVideo}}_00.jpg" alt="thumb">
-    <img src="./assets/thumb/{{selectedVideo}}_01.jpg" alt="thumb">
-    <img src="./assets/thumb/{{selectedVideo}}_02.jpg" alt="thumb">
+    <img *ngFor="let thumb of config[selectedName].thumb" src="./assets/thumb/{{thumb}}"/>
   </section>
 
 </div>

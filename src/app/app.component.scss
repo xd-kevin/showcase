@@ -24,12 +24,12 @@ select {
     img {
       display: inline-block;
       vertical-align: top;
-      width: 200px;
       margin-left: 10px;
     }
 
-    video {
+    video, img {
       width: 200px;
+      height: 355px;
     }
   }
 
@@ -41,6 +41,7 @@ select {
 
       img, video {
         width: 300px;
+        height: 168px;
       }
     }
   }
