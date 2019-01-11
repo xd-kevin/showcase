@@ -10,17 +10,17 @@ npm install
 ## Start
 
 ```
-ng serve
+npm start
 ```
 
 
 ## Git Pages
 
-https://xd-kevin.github.io/showcase/index.html
+https://xd-kevin.github.io/showcase
 
 
 ## Deploy to Git Pages
 
 ```$xslt
-ng build --prod--aot --base-href "https://xd-kevin.github.io/showcase" 
+npm run build
 ```
