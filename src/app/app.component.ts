@@ -13,6 +13,7 @@ export class AppComponent {
   selectedNameIndex = 0;
   selectedName = '';
   isSelectedVideoImageWidth$;
+  score = {};
 
   constructor(private elmRef: ElementRef, private http: HttpClient) {
     this.isSelectedVideoImageWidth$ = new Subject();
@@ -21,6 +22,9 @@ export class AppComponent {
       this.selectedNameIndex = 0;
       this.selectedName = this.videoNames[this.selectedNameIndex];
       this.config = data;
+    });
+    this.getScore().subscribe(data => {
+      this.score = data;
     });
   }
 
@@ -58,5 +62,9 @@ export class AppComponent {
 
   private getVideoNames(): Observable<any> {
     return this.http.get('./assets/videoNames.json');
+  }
+
+  private getScore(): Observable<any> {
+    return this.http.get('./assets/score.json');
   }
 }

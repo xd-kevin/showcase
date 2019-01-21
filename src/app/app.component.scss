@@ -54,7 +54,8 @@
     margin-right: 60px;
     position: relative;
 
-    img {
+    img,
+    .image {
       display: inline-block;
       vertical-align: top;
       margin-left: 10px;
@@ -64,6 +65,19 @@
     img {
       width: 200px;
       height: 355px;
+    }
+
+    .image {
+      .score {
+        margin: 5px 0;
+
+        span {
+          display: inline-block;
+          vertical-align: top;
+          width: 100px;
+          text-align: right;
+        }
+      }
     }
   }
 

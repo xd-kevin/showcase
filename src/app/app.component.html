@@ -1,13 +1,9 @@
-<div style="text-align:center">
-  <h1>
-    视频封面抽取
-  </h1>
-</div>
+<div style="text-align:center"><h1>视频封面抽取</h1></div>
 
 <div class="select-container">
   <h2 class="select-name">选择视频名称</h2>
   <select name="video" [(ngModel)]="selectedNameIndex" (ngModelChange)="updateVideo()">
-    <option *ngFor="let video of videoNames; let i = index" [value]="i">{{video}}</option>
+    <option *ngFor="let video of videoNames; let i = index" [value]="i">{{ video }}</option>
   </select>
 </div>
 
@@ -17,7 +13,7 @@
   <section class="container video">
     <h2>视频</h2>
     <video controls autoplay *ngFor="let video of config[selectedName].video">
-      <source src="./assets/weishi/{{video}}" type="video/mp4">
+      <source src="./assets/weishi/{{video}}" type="video/mp4"/>
     </video>
   </section>
 
@@ -28,12 +24,19 @@
 
   <section class="container img">
     <h2>封面</h2>
-    <img *ngFor="let thumb of config[selectedName].thumb" src="./assets/thumb/{{thumb}}"/>
+    <div class="image" *ngFor="let thumb of config[selectedName].thumb">
+      <img src="./assets/thumb/{{thumb}}"/>
+      <ng-container *ngIf="score[thumb]">
+        <p class="score"><span>score：</span>{{ score[thumb].score | number }}</p>
+        <p class="score"><span>brightness：</span>{{ score[thumb].brightness | number }}</p>
+        <p class="score"><span>sharpness：</span>{{ score[thumb].sharpness | number }}</p>
+        <p class="score"><span>uniformity：</span>{{ score[thumb].uniformity | number }}</p>
+      </ng-container>
+    </div>
   </section>
-  <a class="next link" (click)="handleVideoChange(parseInt(selectedNameIndex) + 1)"
+  <a class="next link"
+     (click)="handleVideoChange(parseInt(selectedNameIndex) + 1)"
      [class.disabled]="selectedNameIndex == videoNames.length - 1">></a>
 </div>
-
-
 
 <router-outlet></router-outlet>
