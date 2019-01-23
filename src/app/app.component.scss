@@ -49,16 +49,27 @@
   }
 
   .container {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 60px;
     position: relative;
+
+    &.block {
+      width: 90%;
+      margin: auto;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    &.video,
+    &.gif {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 60px;
+    }
 
     img,
     .image {
       display: inline-block;
       vertical-align: top;
-      margin-left: 10px;
+      margin-left: 25px;
     }
 
     video,
@@ -83,9 +94,9 @@
 
   &.is-width {
     .container {
-      &.video {
-        display: block;
-      }
+      //&.video {
+      //  display: block;
+      //}
 
       img,
       video {

@@ -17,12 +17,12 @@
     </video>
   </section>
 
-  <section class="container img">
+  <section class="container gif">
     <h2>GIF图</h2>
     <img *ngFor="let gif of config[selectedName].gif" src="./assets/gif/{{gif}}"/>
   </section>
 
-  <section class="container img">
+  <section class="container block">
     <h2>封面</h2>
     <div class="image" *ngFor="let thumb of config[selectedName].thumb">
       <img src="./assets/thumb/{{thumb}}"/>
@@ -32,6 +32,13 @@
         <p class="score"><span>sharpness：</span>{{ score[thumb].sharpness | number }}</p>
         <p class="score"><span>uniformity：</span>{{ score[thumb].uniformity | number }}</p>
       </ng-container>
+    </div>
+  </section>
+
+  <section class="container block">
+    <h2>对照</h2>
+    <div class="image" *ngFor="let org of config[selectedName].org">
+      <img src="./assets/org/{{org}}"/>
     </div>
   </section>
   <a class="next link"
